@@ -1,0 +1,11 @@
+extends layout
+
+
+block content
+  h3= folder
+  h1= title + '  * ' + numFiles + ' * '
+
+  p
+   ul
+    each val in allFiles
+     li= val

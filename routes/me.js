@@ -71,6 +71,7 @@ router.get('/folder', function(req, res, next) {
 			throw err;
 		}
 
+		/*
 		var allFileNames = '';
 		var aFileNames = [];
 
@@ -110,6 +111,13 @@ router.get('/folder', function(req, res, next) {
 	  //res.send(allFileNames);
 	  //res.send(aFileNames);
 	  res.send(sUL);
+	  */
+
+	  //files = files.sort();
+	  console.log(files.length );
+
+	  //send to template
+		res.render('fileList', { title: 'All Files.', folder:folderPath, numFiles:files.length, allFiles: files });
 	});
 
 	
