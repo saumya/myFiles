@@ -74,6 +74,8 @@ router.get('/folder', function(req, res, next) {
 		var allFileNames = '';
 		var aFileNames = [];
 
+		var aFileName = '';
+
 		var sUL = '<ul>';
 		var s1 = '';
 
@@ -85,11 +87,22 @@ router.get('/folder', function(req, res, next) {
 
 	    //console.log( file );
 	    //console.log( path.basename(file) + ':' + path.extname(file) );
-	    allFileNames += path.basename(file);
-	    aFileNames.push( path.basename(file) );
 
-	    s1 = '<li>'+path.basename(file)+'</li>';
-	    sUL += s1;
+	    aFileName = path.basename(file);
+	    if(aFileName.indexOf(".")===0){
+	    	// Do Nothing
+	    }else{
+	    	allFileNames += path.basename(file);
+	    	aFileNames.push( aFileName );
+	    	s1 = '<li>'+path.basename(file)+'</li>';
+	    	sUL += s1;
+	    }
+
+	    //allFileNames += path.basename(file);
+	    //aFileNames.push( aFileName );
+
+	    //s1 = '<li>'+path.basename(file)+'</li>';
+	    //sUL += s1;
 
 	  });
 	  sUL += '</ul>';
