@@ -114,7 +114,18 @@ router.get('/folder', function(req, res, next) {
 	  */
 
 	  //files = files.sort();
-	  console.log(files.length );
+	  //console.log(files.length );
+	  //console.log(files);
+	  //console.log('==========');
+	  /*
+	  files.sort(function(a,b){
+	  	if(a.length>b.length){
+	  		return 1;
+	  	}else{
+	  		return -1;
+	  	}
+	  });
+	  */
 
 	  //send to template
 		res.render('fileList', { title: 'All Files.', folder:folderPath, numFiles:files.length, allFiles: files });
