@@ -127,8 +127,20 @@ router.get('/folder', function(req, res, next) {
 	  });
 	  */
 
+	  /*
+	  files.forEach(file => {
+	  	console.log( 'path.resolve ='+path.resolve(file) );
+	  	console.log( 'path.normalize ='+path.normalize(file) );
+	  })
+	  */
+
+	  //
+	  //demoFilePath = path.join(__dirname, '..', '..', 'dev', 'foobar.json');
+	  //demoFilePath = path.join(__dirname,'../../../../../../../../', 'Downloads', '/2_books/zz_z/11_2.mp4');
+	  demoFilePath = '11_2.mp4';
+
 	  //send to template
-		res.render('fileList', { title: 'All Files.', folder:folderPath, numFiles:files.length, allFiles: files });
+		res.render('fileList', { title: 'All Files.', folder:folderPath, numFiles:files.length, allFiles: files, dfPath:demoFilePath });
 	});
 
 	

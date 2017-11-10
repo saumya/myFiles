@@ -4,6 +4,15 @@ extends layout
 block content
   h3= folder
   h1= title + '  * ' + numFiles + ' * '
+  //h3= dfPath
+
+  p
+   video(width="320", height="240", controls)
+    //source(src="/Users/saumya/Downloads/2_books/zz_z/11_2.mp4", type="video/mp4")
+    //source(src="../../../../../../Downloads/2_books/zz_z/11_2.mp4", type="video/mp4")
+    //source(src="../11_2.mp4", type="video/mp4")
+    //source(src="../videos/1.mp4", type="video/mp4")
+    source(src=dfPath, type="video/mp4")
 
   p
    ul
