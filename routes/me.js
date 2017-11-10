@@ -72,6 +72,11 @@ router.get('/folder', function(req, res, next) {
 		}
 
 		var allFileNames = '';
+		var aFileNames = [];
+
+		var sUL = '<ul>';
+		var s1 = '';
+
 	  files.forEach(file => {
 	    
 	    //res.send(file);
@@ -80,11 +85,18 @@ router.get('/folder', function(req, res, next) {
 
 	    //console.log( file );
 	    //console.log( path.basename(file) + ':' + path.extname(file) );
-	    allFileNames += path.basename(file)
-	  });
-	  //console.log('allFileNames : ',allFileNames);
-	  res.send(allFileNames);
+	    allFileNames += path.basename(file);
+	    aFileNames.push( path.basename(file) );
 
+	    s1 = '<li>'+path.basename(file)+'</li>';
+	    sUL += s1;
+
+	  });
+	  sUL += '</ul>';
+	  //console.log('allFileNames : ',allFileNames);
+	  //res.send(allFileNames);
+	  //res.send(aFileNames);
+	  res.send(sUL);
 	});
 
 	
