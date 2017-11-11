@@ -18,8 +18,9 @@ block content
    ul
     each val in allFiles
      - var aFile=val
-     li= aFile 
-       button(name='btnPlay' value='Play' onclick= "onButtonClick(' "+ val +" ')")
+     li='' 
+       button(name='btnPlay' value='Play' width='100' onclick= "onButtonClick(' "+ val +" ')") Play
+       #{aFile}
 
      //( button( onclick= "myFunction('#{stringVariable}')" ) )
   
