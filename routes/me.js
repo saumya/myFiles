@@ -46,7 +46,10 @@ app.delete('/user', function (req, res) {
 router.get('/folder', function(req, res, next) {
 	//res.send('Folder information');
 	// 
-	const folderPath = '/Users/saumya/Downloads/2_books/zz_z';
+	//const folderPath = '/Users/saumya/Downloads/2_books/zz_z';
+	//const folderPath = './';
+	//const folderPath = path.join(__dirname, '/', 'zz_z/', );
+	const folderPath = path.join('./public/zz_z/');
 	/*
 	// Async
 	fs.readdir(folderPath, (err, files) => {
@@ -137,14 +140,18 @@ router.get('/folder', function(req, res, next) {
 	  //
 	  //demoFilePath = path.join(__dirname, '..', '..', 'dev', 'foobar.json');
 	  //demoFilePath = path.join(__dirname,'../../../../../../../../', 'Downloads', '/2_books/zz_z/11_2.mp4');
-	  demoFilePath = '11_2.mp4';
+	  demoFilePath = '../zz_z/18_2.mp4';
+
+
 
 	  //send to template
 		res.render('fileList', { title: 'All Files.', folder:folderPath, numFiles:files.length, allFiles: files, dfPath:demoFilePath });
 	});
 
-	
 
 });
+
+
+
 
 module.exports = router;

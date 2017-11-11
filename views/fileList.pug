@@ -7,7 +7,7 @@ block content
   //h3= dfPath
 
   p
-   video(width="320", height="240", controls)
+   video(width="400", height="300", controls)
     //source(src="/Users/saumya/Downloads/2_books/zz_z/11_2.mp4", type="video/mp4")
     //source(src="../../../../../../Downloads/2_books/zz_z/11_2.mp4", type="video/mp4")
     //source(src="../11_2.mp4", type="video/mp4")
@@ -17,4 +17,16 @@ block content
   p
    ul
     each val in allFiles
-     li= val
+     li= val 
+       button(name='btnPlay' value='Play' onclick= "onButtonClick('#{val}')")
+
+     //( button( onclick= "myFunction('#{stringVariable}')" ) )
+  p
+   - 
+    var list = ["Uno", "Dos", "Tres","Cuatro", "Cinco", "Seis"] 
+  each item in list
+   li= item
+  
+  p
+   -
+    var onButtonClick = function(obj){ console.log('click'); }
