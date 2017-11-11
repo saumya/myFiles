@@ -17,8 +17,9 @@ block content
   p
    ul
     each val in allFiles
-     li= val 
-       button(name='btnPlay' value='Play' onclick= "onButtonClick('#{val}')")
+     - var aFile=val
+     li= aFile 
+       button(name='btnPlay' value='Play' onclick= "onButtonClick(' "+ aFile +" ')")
 
      //( button( onclick= "myFunction('#{stringVariable}')" ) )
   
@@ -32,3 +33,5 @@ block content
   p
    -
     var onButtonClick = function(obj){ console.log('click'); }
+  
+  script(src='/javascripts/app.js')
