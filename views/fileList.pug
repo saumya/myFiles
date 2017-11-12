@@ -1,10 +1,15 @@
 extends layout
 
 
+
 block content
   h3= folder
   h1= title + '  * ' + numFiles + ' * '
   //h3= dfPath
+
+  
+  link(rel='stylesheet', href='/stylesheets/myApp.css')
+
 
   p
    video(width="400", height="300", controls)
