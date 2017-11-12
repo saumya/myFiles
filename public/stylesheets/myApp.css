@@ -1,6 +1,9 @@
+/* Global style from root stylesheet */
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #cccccc;
 }
 
 a {
@@ -8,6 +11,12 @@ a {
 }
 
 /* my app */
+
+video {
+	border: solid;
+	border-width: 4px;
+	border-color: white;
+}
 
 button {
 	width: 4em;
@@ -21,7 +30,7 @@ ul {
 }
 
 li {
-	background-color: #f0ff2f14;
+	background-color: #ffe200;
 	padding: 0.2em;
 	margin-top: 0.2em;
 }
@@ -29,3 +38,4 @@ li {
 .lText{
 	padding-left: 1em;
 }
+
