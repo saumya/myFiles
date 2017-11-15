@@ -8,7 +8,8 @@ var router = express.Router();
 //
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
-var Component = require('./Component.jsx');
+//var Component = require('./Component.jsx');
+var HelloReactJSX = require('../public/javascripts/hello.comp.react.jsx');
 // ref : https://www.youtube.com/watch?v=k66bOHX8MnY
 
 
@@ -16,7 +17,7 @@ var Component = require('./Component.jsx');
 router.get('/', function(req, res, next) {
   //res.send('respond with a resource');
   var html = ReactDOMServer.renderToString(
-  	React.createElement(Component)
+  	React.createElement(HelloReactJSX)
   );
   res.send(html);
 });
