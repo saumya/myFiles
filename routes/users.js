@@ -1,9 +1,16 @@
+//
+require('babel-register')({
+	presets:['react']
+});
+//
 var express = require('express');
 var router = express.Router();
-
+//
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 var Component = require('./Component.jsx');
+// ref : https://www.youtube.com/watch?v=k66bOHX8MnY
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
