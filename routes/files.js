@@ -22,8 +22,26 @@ router.get('/folder2', function(req, res, next) {
 });
 
 router.get('/inFolder', function(request, response, next){
-	response.send('Files in Folder');
+	//response.send('Files in Folder');
+	// : /Users/saumya/Documents/1_photography
+	
+	const folderPath = path.join('./public/zz_z/');
+
+	var allFiles = [];
+	fs.readdir(folderPath, 'utf8', (err, files) => {
+		//
+		if (err) {
+			throw err;
+		}
+		//
+		//res.render('fileList', { title: 'All Files.', folder:folderPath, numFiles:files.length, allFiles: files, dfPath:demoFilePath });
+		//
+		//numFiles:files.length;
+		//allFiles: files;
+		console.log('files',files);
+		response.send(files);
+	});
 })
 
-
+//Export module
 module.exports = router;
