@@ -1,5 +1,6 @@
 // React
 var React = require('react');
+var createReactClass = require('create-react-class');
 
 /*
 module.exports = function(){
@@ -14,3 +15,22 @@ module.exports = function(){
 	return elm;
 };
 */
+
+//ES5
+var Greeting = createReactClass({
+	_onBtnClick: function(){
+		alert('ReactOnServer-Click');
+	},
+	render: function() {
+		//return <h1>Hello, {this.props.name}</h1>;
+		return(
+		    	<div id='react-app'>
+					<h1>React on Server</h1>
+					<p>This is simply brilliant and elegant.</p>
+					<button onClick={this._onBtnClick.bind(this)}>React-On-This-Button</button>
+				</div>
+			);
+	}
+});
+//
+module.exports = Greeting;
