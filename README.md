@@ -25,6 +25,12 @@ npm install babel-register babel-preset-react --save
 
 React component [Without ES6][1] is done using [create-react-class][2] module
 
+```
+npm install create-react-class --save
+```
+
+
+
 
 
 
