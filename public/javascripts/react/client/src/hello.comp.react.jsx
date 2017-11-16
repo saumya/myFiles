@@ -22,12 +22,11 @@ var Greeting = createReactClass({
 		alert('ReactOnServer-Click');
 	},
 	render: function() {
-		//return <h1>Hello, {this.props.name}</h1>;
 		return(
-		    	<div id='react-app'>
+		    <div>
 					<h1>React on Server</h1>
 					<p>This is simply brilliant and elegant.</p>
-					<button onClick={this._onBtnClick.bind(this)}>React-On-This-Button</button>
+					<button onClick={this._onBtnClick}>React-On-This-Button</button>
 				</div>
 			);
 	}

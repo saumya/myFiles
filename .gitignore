@@ -1,7 +1,12 @@
 #
-
 node_modules/
+
+# ServerSideRednering - ClientSideRendering
+public/javascripts/react/client/node_modules/
+public/javascripts/react/client/buildReact/
+public/javascripts/react/client/build/
 
 
 #
 public/zz_z/
+
