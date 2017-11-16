@@ -1,6 +1,7 @@
 // React
 var React = require('react');
 
+/*
 module.exports = function(){
 	//const elm = React.createElement('h1', null, 'Hello World! Its React on Server.');
 	const elm = (
@@ -12,3 +13,4 @@ module.exports = function(){
 				);
 	return elm;
 };
+*/
