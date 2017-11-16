@@ -9,7 +9,7 @@ var router = express.Router();
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 //var Component = require('./Component.jsx');
-var HelloReactJSX = require('../public/javascripts/hello.comp.react.jsx');
+var HelloReactJSX = require('../public/javascripts/react/hello.comp.react.jsx');
 // ref : https://www.youtube.com/watch?v=k66bOHX8MnY
 
 
