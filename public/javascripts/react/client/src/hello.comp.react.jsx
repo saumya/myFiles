@@ -18,13 +18,19 @@ module.exports = function(){
 
 //ES5
 var Greeting = createReactClass({
+	getDefaultProps: function() {
+    return { version: '0.0.1' };
+  },
+  getInitialState: function() {
+    return { sVersion: this.props.version };
+  },
 	_onBtnClick: function(){
-		alert('ReactOnServer-Click');
+		alert('ReactOnServer-Click: app-version='+this.props.version);
 	},
 	render: function() {
 		return(
 		    <div>
-					<h1>React on Server</h1>
+					<h1>React on Server :{this.state.sVersion} </h1>
 					<p>This is simply brilliant and elegant.</p>
 					<button onClick={this._onBtnClick}>React-On-This-Button</button>
 				</div>
