@@ -29,6 +29,26 @@ React component [Without ES6][1] is done using [create-react-class][2] module
 npm install create-react-class --save
 ```
 
+#### ReactJS rendering on Client
+
+Its the usual client-side setup. In this project the setup is inside `public/javascripts/react/client/` folder. To create the client side application
+
+```
+npm install
+npm run 2js
+npm run pack
+```
+
+The setup is inside the `public/javascripts/react/client/package.json` file.
+
+
+
+
+
+
+
+
+
 
 
 
