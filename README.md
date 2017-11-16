@@ -10,6 +10,11 @@ Run the app from command line
 DEBUG=myfiles:* npm start
 ```
 
+### ReactJS on Server
+ 
+ - On Server, this is done with [react-dom-server][3] and `renderToString`
+ - On Client, this is done with [ReactDOM.hydrate()][4] instead of `render()`
+
 #### ReactJS rendering on Server
 
 To use React 
@@ -75,3 +80,7 @@ The setup is inside the `public/javascripts/react/client/package.json` file.
 
 [1]: https://reactjs.org/docs/react-without-es6.html
 [2]: https://www.npmjs.com/package/create-react-class
+[3]: https://reactjs.org/docs/react-dom-server.html#rendertostring
+[4]: https://reactjs.org/docs/react-dom.html#hydrate
+
+
