@@ -1,6 +1,7 @@
 My Files
 ===========
- A NodeJS application for files' information.
+ - A NodeJS application for files' information.
+ - ReactJS Application with ServerSideRendering
 
 
 Run the app from command line

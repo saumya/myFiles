@@ -19,13 +19,18 @@ module.exports = function(){
 //ES5
 var Greeting = createReactClass({
 	getDefaultProps: function() {
-    return { version: '0.0.1' };
+    return { version: '0.0.1', clickCounter:0 };
   },
   getInitialState: function() {
-    return { sVersion: this.props.version };
+    return { sVersion: this.props.version, cCounter:0 };
   },
 	_onBtnClick: function(){
-		alert('ReactOnServer-Click: app-version='+this.props.version);
+		//this.props.clickCounter ++;
+		var n = this.state.cCounter;
+		var m = n+1;
+
+		this.setState({cCounter:m});
+		//alert('ReactOnServer-Click: app-version='+this.props.version);
 	},
 	render: function() {
 		return(
@@ -33,6 +38,7 @@ var Greeting = createReactClass({
 					<h1>React on Server :{this.state.sVersion} </h1>
 					<p>This is simply brilliant and elegant.</p>
 					<button onClick={this._onBtnClick}>React-On-This-Button</button>
+					<h3>Click counter {this.state.cCounter}</h3> 
 				</div>
 			);
 	}
