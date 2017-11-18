@@ -61,6 +61,9 @@ router.get('/inFolder', function(request, response, next){
 		response.send(sJson);
 		*/
 		var sHtml = '';
+		var oFile = {};
+		var sFile = '';
+		var sJSON = '{"result":[';
 		for (var i = 0; i < files.length; i++) {
 			//console.log(i+':'+files[i]);
 			//response.send(i+':'+files[i]);
@@ -73,11 +76,24 @@ router.get('/inFolder', function(request, response, next){
 			*/
 			var pathname = (folderPath+'/'+files[i]);
 			var stats = fs.statSync(pathname);
-			console.log(stats);
-			sHtml += (i+':'+files[i]+': AccessTime=<b>'+stats.atime+'</b>: ModifictionTime=<b>'+stats.mtime+'</b><br><br>');
+			//console.log(stats);
+			//sHtml += (i+':'+files[i]+': AccessTime=<b>'+stats.atime+'</b>: ModifictionTime=<b>'+stats.mtime+'</b><br><br>');
+			oFile = {
+				'no':i,
+				'name':files[i],
+				'aTime':stats.atime,
+				'mTime':stats.mtime
+			}
+			sFile = JSON.stringify(oFile);
+			sJSON += sFile+',';
 		}
+		//response.send(sHtml);
+		sJSON += '{"no":"","name":"","aTime":"","mTime":""}]}';
+		sJSON.replace(/ /g,'');
 
-		response.send(sHtml);
+		response.setHeader('Content-Type', 'application/json');
+		response.send(sJSON);
+
 
 
 
