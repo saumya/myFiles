@@ -18,5 +18,15 @@ block content
        span(class='fName') #{aFile.name} 
        span(class='fDate') #{aFile.aTime}
 
+  script.
+   //var local_data =!{JSON.stringify(allFileDetails)}; 
+   //ref: https://stackoverflow.com/questions/21263337/passing-a-variable-from-jade-to-javascript
+   var aFileDetails =!{JSON.stringify(allFileDetails)}; 
+   //var local_data =(allFileDetails); 
+   //console.log(aFileDetails)
+   //ref: https://stackoverflow.com/questions/21263337/passing-a-variable-from-jade-to-javascript
+   //var sFileDetails = `#{allFileDetails}`;
+   //console.log(aFileDetails)
+
   
-  script(src='/javascripts/app.js')
+  script(src='/javascripts/fileListOne.js')
