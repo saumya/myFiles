@@ -1,7 +1,8 @@
 /* Global style from root stylesheet */
 
 body {
-  padding: 50px;
+  padding: 0px;
+  margin-left: 4px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #cccccc;
 }
@@ -12,11 +13,6 @@ a {
 
 /* my app */
 
-video {
-	border: solid;
-	border-width: 4px;
-	border-color: white;
-}
 
 button {
 	width: 4em;
@@ -39,15 +35,16 @@ li {
 	padding-left: 1em;
 }
 
-#idVideoInfo {
-	display: block;
-	height: 1em;
-	padding: 1em;
-}
 #idListContainer {
 	height: 15em;
 	overflow: scroll;
 	margin-left: -2em;
 }
 
+#idFileListContainer{
+	height: 35em;
+	width: 96%;
+	overflow: scroll;
+	margin-left: 0em;
+}
 

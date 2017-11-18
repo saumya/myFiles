@@ -26,6 +26,7 @@ router.get('/inFolder', function(request, response, next){
 	// : /Users/saumya/Documents/1_photography
 	
 	const folderPath = path.join('./public/zz_z/');
+	var aFileDetails = [];
 
 	//var allFiles = [];
 	fs.readdir(folderPath, 'utf8', (err, files) => {
@@ -64,6 +65,7 @@ router.get('/inFolder', function(request, response, next){
 		var oFile = {};
 		var sFile = '';
 		var sJSON = '{"result":[';
+		
 		for (var i = 0; i < files.length; i++) {
 			//console.log(i+':'+files[i]);
 			//response.send(i+':'+files[i]);
@@ -86,15 +88,19 @@ router.get('/inFolder', function(request, response, next){
 			}
 			sFile = JSON.stringify(oFile);
 			sJSON += sFile+',';
+			aFileDetails.push(oFile);
 		}
 		//response.send(sHtml);
-		sJSON += '{"no":"","name":"","aTime":"","mTime":""}]}';
+		sJSON += '{"no":'+(files.length+1)+',"name":"","aTime":"","mTime":""}]}';
 		sJSON.replace(/ /g,'');
-
+		
+		/*
+		// send the JSON out put
 		response.setHeader('Content-Type', 'application/json');
 		response.send(sJSON);
+		*/
 
-
+		response.render('fileListOne', { title: 'Files\' Details.', numFiles:files.length, allFileDetails: aFileDetails });
 
 
 

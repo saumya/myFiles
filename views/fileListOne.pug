@@ -1,0 +1,21 @@
+extends layout
+
+
+
+block content
+  h1= title + '  * ' + numFiles + ' * '
+
+  
+  link(rel='stylesheet', href='/stylesheets/fileListOne.css')
+
+
+  
+  div(id="idFileListContainer")
+   ul
+    each val in allFileDetails
+     - var aFile=val
+     li='' 
+       span(class='lText') #{aFile.name} #{aFile.aTime}
+
+  
+  script(src='/javascripts/app.js')
