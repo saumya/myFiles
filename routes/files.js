@@ -39,7 +39,7 @@ router.get('/inFolder', function(request, response, next){
 		//numFiles:files.length;
 		//allFiles: files;
 		//console.log('files',files);
-		response.send(files);
+		//response.send(files);
 		//response.send({'files':files});
 		
 		//response.setHeader('Content-Type', 'application/json');
@@ -60,6 +60,28 @@ router.get('/inFolder', function(request, response, next){
 		sJson = sJson+'}';
 		response.send(sJson);
 		*/
+		var sHtml = '';
+		for (var i = 0; i < files.length; i++) {
+			//console.log(i+':'+files[i]);
+			//response.send(i+':'+files[i]);
+			
+			//sHtml += (i+':'+files[i]+'<br>');
+			/*
+			fs.stat((folderPath+'/'+files[i]),function(error,stats){
+				console.log(stats);
+			});
+			*/
+			var pathname = (folderPath+'/'+files[i]);
+			var stats = fs.statSync(pathname);
+			console.log(stats);
+			sHtml += (i+':'+files[i]+': AccessTime=<b>'+stats.atime+'</b>: ModifictionTime=<b>'+stats.mtime+'</b><br><br>');
+		}
+
+		response.send(sHtml);
+
+
+
+
 	});
 })
 
