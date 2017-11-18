@@ -18,7 +18,7 @@ router.get('/folder1', function(req, res, next) {
 });
 
 router.get('/folder2', function(req, res, next) {
-  res.send('response/ folder2');
+  res.send({'route path':'response/ folder2'});
 });
 
 router.get('/inFolder', function(request, response, next){
@@ -27,7 +27,7 @@ router.get('/inFolder', function(request, response, next){
 	
 	const folderPath = path.join('./public/zz_z/');
 
-	var allFiles = [];
+	//var allFiles = [];
 	fs.readdir(folderPath, 'utf8', (err, files) => {
 		//
 		if (err) {
@@ -38,8 +38,28 @@ router.get('/inFolder', function(request, response, next){
 		//
 		//numFiles:files.length;
 		//allFiles: files;
-		console.log('files',files);
+		//console.log('files',files);
 		response.send(files);
+		//response.send({'files':files});
+		
+		//response.setHeader('Content-Type', 'application/json');
+		//response.send(JSON.stringify({'files':files}));
+		
+		/*
+		var myJsonString = JSON.stringify(files);
+		response.send(myJsonString);
+		*/
+		/*
+		var i,a,s = 0;
+		var sJson = '{';
+		for (i = files.length - 1; i >= 0; i--) {
+			a = files[i]
+			s = "{\"file\":\""+a+"\"}";
+			sJson = sJson+s+',';
+		}
+		sJson = sJson+'}';
+		response.send(sJson);
+		*/
 	});
 })
 
