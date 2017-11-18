@@ -55,4 +55,8 @@ li {
 	overflow: scroll;
 	margin-left: 0em;
 }
+#btnRefresh{
+	width: 5em;
+	font-size: 1em;
+}
 

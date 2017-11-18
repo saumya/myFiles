@@ -4,6 +4,8 @@ extends layout
 
 block content
   h1= title + '  * ' + numFiles + ' * '
+   button(id="btnRefresh") Refresh
+  
 
   
   link(rel='stylesheet', href='/stylesheets/fileListOne.css')
@@ -19,6 +21,8 @@ block content
        span(class='fDate') #{aFile.aTime}
   //
   
+  
+
   div(id="idFileListContainer")
 
   script.
@@ -52,7 +56,7 @@ block content
    //console.log(aFileDetails)
 
   
-  //-script(src='/javascripts/fileListOne.js')
+  script(src='/javascripts/fileListOne.js')
 
 
 
