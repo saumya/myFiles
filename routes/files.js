@@ -102,11 +102,11 @@ router.get('/inFolder', function(request, response, next){
 
 		//console.log(aFileDetails);
 		//sort the file details
-		aFileDetails.sort(function(file2,file1){
+		aFileDetails.sort(function(file1,file2){
 			var d1 = new Date(file1.aTime).getTime();
 			var d2 = new Date(file2.aTime).getTime();
 			//console.log('d1:',d1,':: d2:',d2);
-			if(d2<d1){
+			if(d1>d2){
 				//console.log('d2>d1');
 				return true;
 			}

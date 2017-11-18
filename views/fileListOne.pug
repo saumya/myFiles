@@ -9,14 +9,37 @@ block content
   link(rel='stylesheet', href='/stylesheets/fileListOne.css')
 
 
-  
-  div(id="idFileListContainer")
+  //-
+   div(id="idFileListContainer")
    ul
     each val in allFileDetails
      - var aFile=val
      li='' 
        span(class='fName') #{aFile.name} 
        span(class='fDate') #{aFile.aTime}
+  //
+  
+  div(id="idFileListContainer")
+
+  script.
+   var allFileDetails =!{JSON.stringify(allFileDetails)}; 
+   //console.log(allFileDetails);
+   var sorted = allFileDetails;
+   var newString = '<ul>';
+   for (var i = sorted.length - 1; i >= 0; i--) {
+     //var fDetails = sorted[i];
+     //console.log('sorted[i]',sorted[i].name);
+     newString += '<li><span class="fName">'+sorted[i].name+'</span><span class="fDate">'+sorted[i].aTime+'</span></li>';
+    }
+    newString += '</ul>';
+    //document.body.innerHTML = newString;
+    document.getElementById('idFileListContainer').innerHTML = newString;
+  
+
+   
+
+
+		
 
   script.
    //var local_data =!{JSON.stringify(allFileDetails)}; 
@@ -29,4 +52,7 @@ block content
    //console.log(aFileDetails)
 
   
-  script(src='/javascripts/fileListOne.js')
+  //-script(src='/javascripts/fileListOne.js')
+
+
+
