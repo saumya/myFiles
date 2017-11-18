@@ -15,7 +15,8 @@ block content
     each val in allFileDetails
      - var aFile=val
      li='' 
-       span(class='lText') #{aFile.name} #{aFile.aTime}
+       span(class='fName') #{aFile.name} 
+       span(class='fDate') #{aFile.aTime}
 
   
   script(src='/javascripts/app.js')
