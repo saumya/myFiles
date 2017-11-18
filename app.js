@@ -1,3 +1,23 @@
+//
+// All that is there to Express is Routes and render a page as per it.
+// Its better to make an API layer with Express
+//
+//
+//CORS middleware 
+//ref: https://stackoverflow.com/questions/7067966/how-to-allow-cors
+//
+var allowCrossDomain = function(req, res, next) {
+	console.log('allowCrossDomain:middleware');
+  //res.header('Access-Control-Allow-Origin', 'example.com');
+  //res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  //res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+  next();
+}
+//
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
