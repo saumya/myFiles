@@ -29,6 +29,7 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const me = require('./routes/me');
 const files = require('./routes/files');
+const fileWatcher = require('./routes/fileWatcher');
 
 var app = express();
 
