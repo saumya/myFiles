@@ -22,11 +22,13 @@ router.get('/folder2', function(req, res, next) {
 });
 
 router.get('/inFolder', function(request, response, next){
-	
+	/*
+	// list all files in a folder
+	// ref: https://gist.github.com/kethinov/6658166
+	//
 	const folderPath = path.join('./public/zz_z/');
 	var aFileDetails = [];
 
-	//var allFiles = [];
 	fs.readdir(folderPath, 'utf8', (err, files) => {
 		if (err) {
 			throw err;
@@ -61,9 +63,73 @@ router.get('/inFolder', function(request, response, next){
 			}
 		});
 		response.render('fileListOne', { title: 'Files\' Details.', numFiles:files.length, allFileDetails: aFileDetails });
-		//
 	});
+	//
+	*/
+	//response.send("TODO");
+	//const folderPath = path.join('./public/zz_z/');
+	const folderPath = ('./public/zz_z');
+	var allFiles = getFiles(folderPath);
+	console.log('=============================');
+	console.log('Total Files',allFiles.length);
+	console.log('=============================');
+	//response.send(allFiles);
+	var aSortedFiles = sortFilesAsPerDateOpened(allFiles);
+	//response.send(aSortedFiles);
+
+	response.render('fileListOne', { title: 'Files\' Details.', numFiles:aSortedFiles.length, allFileDetails: aSortedFiles });
 })
+
+// private functions
+// ref: https://stackoverflow.com/questions/2727167/how-do-you-get-a-list-of-the-names-of-all-files-present-in-a-directory-in-node-j
+//
+function getFiles (dir, files_,aFileDetails){
+	//
+	var oFile = {};
+	var sFile = '';
+	//var aFileDetails = [];
+	aFileDetails = aFileDetails || [];
+	//
+	files_ = files_ || [];
+	var files = fs.readdirSync(dir);
+  for (var i in files){
+    var name = dir + '/' + files[i];
+    //
+    var stats = fs.statSync(name);
+		
+    //
+    //if (fs.statSync(name).isDirectory()){
+    if (stats.isDirectory()){
+    	//console.log("================ Folder");
+      getFiles(name, files_, aFileDetails);
+    } else {
+      files_.push(name);
+      //
+			oFile = {
+				'no':i,
+				'name':files[i],
+				'aTime':stats.atime,
+				'mTime':stats.mtime
+			}
+			sFile = JSON.stringify(oFile);
+			aFileDetails.push(oFile);
+    }
+  }
+  //return files_;
+  return aFileDetails;
+}
+//
+function sortFilesAsPerDateOpened(aFiles){
+	//sort the file details
+	var aSortedDetails = aFiles.sort(function(file1,file2){
+		var d1 = new Date(file1.aTime).getTime();
+		var d2 = new Date(file2.aTime).getTime();
+		if(d1>d2){
+			return true;
+		}
+	});
+	return aSortedDetails;
+}
 
 //Export module
 module.exports = router;
