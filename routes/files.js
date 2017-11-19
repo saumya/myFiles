@@ -22,64 +22,24 @@ router.get('/folder2', function(req, res, next) {
 });
 
 router.get('/inFolder', function(request, response, next){
-	//response.send('Files in Folder');
-	// : /Users/saumya/Documents/1_photography
 	
 	const folderPath = path.join('./public/zz_z/');
 	var aFileDetails = [];
 
 	//var allFiles = [];
 	fs.readdir(folderPath, 'utf8', (err, files) => {
-		//
 		if (err) {
 			throw err;
 		}
-		//
-		//res.render('fileList', { title: 'All Files.', folder:folderPath, numFiles:files.length, allFiles: files, dfPath:demoFilePath });
-		//
-		//numFiles:files.length;
-		//allFiles: files;
-		//console.log('files',files);
-		//response.send(files);
-		//response.send({'files':files});
-		
-		//response.setHeader('Content-Type', 'application/json');
-		//response.send(JSON.stringify({'files':files}));
-		
-		/*
-		var myJsonString = JSON.stringify(files);
-		response.send(myJsonString);
-		*/
-		/*
-		var i,a,s = 0;
-		var sJson = '{';
-		for (i = files.length - 1; i >= 0; i--) {
-			a = files[i]
-			s = "{\"file\":\""+a+"\"}";
-			sJson = sJson+s+',';
-		}
-		sJson = sJson+'}';
-		response.send(sJson);
-		*/
+
 		var sHtml = '';
 		var oFile = {};
 		var sFile = '';
 		var sJSON = '{"result":[';
 		
 		for (var i = 0; i < files.length; i++) {
-			//console.log(i+':'+files[i]);
-			//response.send(i+':'+files[i]);
-			
-			//sHtml += (i+':'+files[i]+'<br>');
-			/*
-			fs.stat((folderPath+'/'+files[i]),function(error,stats){
-				console.log(stats);
-			});
-			*/
 			var pathname = (folderPath+'/'+files[i]);
 			var stats = fs.statSync(pathname);
-			//console.log(stats);
-			//sHtml += (i+':'+files[i]+': AccessTime=<b>'+stats.atime+'</b>: ModifictionTime=<b>'+stats.mtime+'</b><br><br>');
 			oFile = {
 				'no':i,
 				'name':files[i],
@@ -90,33 +50,18 @@ router.get('/inFolder', function(request, response, next){
 			sJSON += sFile+',';
 			aFileDetails.push(oFile);
 		}
-		//response.send(sHtml);
 		sJSON += '{"no":'+(files.length+1)+',"name":"","aTime":"","mTime":""}]}';
 		sJSON.replace(/ /g,'');
-		
-		/*
-		// send the JSON out put
-		response.setHeader('Content-Type', 'application/json');
-		response.send(sJSON);
-		*/
-
-		//console.log(aFileDetails);
 		//sort the file details
 		aFileDetails.sort(function(file1,file2){
 			var d1 = new Date(file1.aTime).getTime();
 			var d2 = new Date(file2.aTime).getTime();
-			//console.log('d1:',d1,':: d2:',d2);
 			if(d1>d2){
-				//console.log('d2>d1');
 				return true;
 			}
 		});
-		//console.log(aFileDetails);
-
 		response.render('fileListOne', { title: 'Files\' Details.', numFiles:files.length, allFileDetails: aFileDetails });
-
-
-
+		//
 	});
 })
 
