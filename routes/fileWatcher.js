@@ -50,6 +50,8 @@ router.get('/', function(req, res, next) {
   		console.log('stats',stats);
   		console.log('changed to',`to ${stats.size}`);
   	}
+  	//var watchedPaths = watcher.getWatched();
+  	//console.log('watchedPaths',watchedPaths);
   	//
   	console.log('==========================');
   	//res.send('change');
