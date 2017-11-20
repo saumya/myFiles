@@ -20,7 +20,8 @@ var watcher = chokidar.watch(['.'], {
 }); 
 */
 // it wawtches from the 'root' folder
-var watcher = chokidar.watch(['./routes/','./public/zz_z/'], {
+//var watcher = chokidar.watch(['./routes/','./public/zz_z/3_songs/'], {
+var watcher = chokidar.watch(['./public/zz_z/'], {
 	persistent: true, 
 });
 // Something to use when events are received.
@@ -41,10 +42,15 @@ router.get('/', function(req, res, next) {
   	console.log('==========================');
   	res.send('Chokidar is Ready.');
   }) 
-  watcher.on('change', function(path){ 
+  watcher.on('change', function(path,stats){ 
   	console.log('==========================');
   	console.log('Chokidar : Change');
   	console.log('path',path);
+  	if (stats){
+  		console.log('stats',stats);
+  		console.log('changed to',`to ${stats.size}`);
+  	}
+  	//
   	console.log('==========================');
   	//res.send('change');
   })
