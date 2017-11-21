@@ -40,7 +40,7 @@ router.get('/', function(req, res, next) {
   	console.log('==========================');
   	console.log('Chokidar : Ready');
   	console.log('==========================');
-  	res.send('Chokidar is Ready.');
+  	//res.send('Chokidar is Ready.');
   }) 
   watcher.on('change', function(path,stats){ 
   	console.log('==========================');
@@ -59,10 +59,12 @@ router.get('/', function(req, res, next) {
 	watcher.on('error',function(error){
   	console.log('xxxxxxxxxxxxxxxxxxxxxxxxxx');
   	console.log('Chokidar : ERROR');
+    console.log(error);
   	console.log('xxxxxxxxxxxxxxxxxxxxxxxxxx'); 
 		//res.send('Error');
 	});
-	//res.send('Watching folder now.');
+  // should be inside 'ready' listener
+	res.send('Watching folder now.');
 });// END route
 
 module.exports = router;
