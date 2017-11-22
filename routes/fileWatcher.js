@@ -1,4 +1,6 @@
 //
+// Watches files in a folder and notifies of changes to them
+//
 var express = require('express');
 var router = express.Router();
 //
