@@ -1,4 +1,8 @@
 //
+// First version of checking the files inside a folder
+// But seems that it fails when we have a lot of files
+// Definitely more work is needed either in logic or finding a better solution.
+//
 var express = require('express');
 var router = express.Router();
 //
@@ -69,6 +73,7 @@ router.get('/inFolder', function(request, response, next){
 	//response.send("TODO");
 	//const folderPath = path.join('./public/zz_z/');
 	const folderPath = ('./public/zz_z');
+	//const folderPath = ('.'); // Fails: Most probably the number of files are more
 	var allFiles = getFiles(folderPath);
 	console.log('=============================');
 	console.log('Total Files',allFiles.length);
