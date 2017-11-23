@@ -1,7 +1,8 @@
 My Files
 ===========
  - A NodeJS application for files' information.
- - ReactJS Application with ServerSideRendering
+ - ReactJS Application with ServerSideRendering.
+ - Files are watched through [chokidar][5] for changes.
 
 
 Run the app from command line
@@ -82,5 +83,6 @@ The setup is inside the `public/javascripts/react/client/package.json` file.
 [2]: https://www.npmjs.com/package/create-react-class
 [3]: https://reactjs.org/docs/react-dom-server.html#rendertostring
 [4]: https://reactjs.org/docs/react-dom.html#hydrate
+[5]: https://github.com/paulmillr/chokidar
 
 
